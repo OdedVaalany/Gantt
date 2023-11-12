@@ -47,7 +47,13 @@ const GanttTimeLine: FC<GanttTimeLineProps> = ({
             width: `${DAY / scale}px`,
           }}
         >
-          <div>{toDayFormat(i)}</div>
+          <div
+            style={{
+              right: `${DAY / scale / 2}px`,
+            }}
+          >
+            {toDayFormat(i)}
+          </div>
         </div>
       );
     }

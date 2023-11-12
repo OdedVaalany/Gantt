@@ -3,6 +3,7 @@ import { GanttWrapper } from "./Gantt.styled";
 import GanttTimeLine from "../GanttTimeLine/GanttTimeLine";
 import {
   MIN,
+  getThisDay,
   nextScale,
   prevScale,
   toTimeFormat,
@@ -78,9 +79,15 @@ const Gantt: FC<GanttProps> = ({
   };
 
   window.onresize = () => setWidth(window.innerWidth);
-
+  console.log(((timeRange.start - getThisDay(timeRange.start)) / scale) % 60);
   return (
-    <GanttWrapper>
+    <GanttWrapper
+      style={{
+        backgroundPositionX: `${
+          (((timeRange.start - getThisDay(timeRange.start)) / scale) % 60) + 15
+        }px`,
+      }}
+    >
       <GanttTimeLine timeRange={timeRange} scale={scale} setScale={setScale} />
       <div onMouseMove={handleDrag} onWheel={handleZoom} id="ganttBody">
         {data.map((data: ganttRow, index: number) => (

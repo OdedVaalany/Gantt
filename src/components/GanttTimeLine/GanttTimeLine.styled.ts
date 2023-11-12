@@ -15,20 +15,17 @@ export const GanttTimeLineWrapper = styled.div`
     overflow: visible;
     transform: translateX(50%);
     z-index: 1;
-    justify-content: center;
-    display: flex;
     border: 1px solid gray;
     border-width: 0px 1px;
     padding: 0px 10px;
     box-sizing: border-box;
+    direction: rtl;
   }
 
   .days div {
     width: 100px;
     display: block;
     position: sticky;
-    left: 100px;
-    right: 100px;
   }
 
   .times {
