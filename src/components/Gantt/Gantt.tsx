@@ -22,6 +22,7 @@ const Gantt: FC<GanttProps> = ({
 }) => {
   const [width, setWidth] = useState<number>(window.innerWidth);
   const [scale, setScale] = useState<number>(MIN); //1px = scale seconds
+  const [pScale, setPScale] = useState<number>(MIN); //1px = scale seconds
   const [mouseLocation, setMouseLocation] = useState<number>(0);
   const [timeRange, setTimeRange] = useState<{ start: number; end: number }>({
     start: Date.now(),
@@ -30,14 +31,16 @@ const Gantt: FC<GanttProps> = ({
   useState<number>(0);
 
   useEffect(() => {
-    const postTime: number = timeRange.start + scale * mouseLocation;
-    const newStart: number = postTime - scale * (0.9 * width - mouseLocation);
-    console.log(toTimeFormat(postTime));
-    console.log(toTimeFormat(newStart));
+    const postTime: number =
+      mouseLocation === 0
+        ? Date.now()
+        : timeRange.start + pScale * mouseLocation;
+    const newStart: number = postTime - scale * mouseLocation;
     setTimeRange({
       start: newStart,
       end: newStart + scale * width,
     });
+    setMouseLocation(0);
   }, [scale]);
 
   const handleDrag = (ev: React.MouseEvent<HTMLDivElement>) => {
@@ -54,8 +57,9 @@ const Gantt: FC<GanttProps> = ({
   };
 
   const handleZoom = (ev: React.WheelEvent<HTMLDivElement>) => {
-    setMouseLocation(ev.clientX + 0.1 * width);
+    setMouseLocation(ev.clientX < 0.9 * width ? 0.9 * width - ev.clientX : 0);
     if (ev.altKey) {
+      setPScale(scale);
       if (ev.deltaY / Math.abs(ev.deltaY) < 0) {
         setScale(nextScale(scale));
       } else {
