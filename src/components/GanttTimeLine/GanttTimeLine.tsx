@@ -3,9 +3,7 @@ import { GanttTimeLineWrapper } from "./GanttTimeLine.styled";
 import {
   DAY,
   HOUR,
-  SEC,
   ZOOM_SCALE,
-  getStartTimeForTimeLine,
   getThisDay,
   getThisNextDay,
   mapScaleToVal,

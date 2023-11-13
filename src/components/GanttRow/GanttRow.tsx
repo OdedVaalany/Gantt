@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import  { FC, useState } from "react";
 import { GanttRowWrapper } from "./GanttRow.styled";
 import GanttEvent from "../GanttEvent/GanttEvent";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
@@ -45,7 +45,7 @@ const GanttRow: FC<GanttRowProps> = ({
                     <GanttEvent
                       onClick={onClick}
                       ondbClick={ondbClick}
-                      key={`${i}-${j}`}
+                      key={`${i}${j}`}
                       data={event}
                       timeRange={timeRange}
                       scale={scale}

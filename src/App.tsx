@@ -1,6 +1,6 @@
 import "./App.css";
 import Gantt from "./components/Gantt/Gantt";
-import { DAY, MIN } from "./utils/GanttUtils";
+import {  MIN } from "./utils/GanttUtils";
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 const mockData: ganttRow[] = [
   {
@@ -35,7 +35,7 @@ const mockData: ganttRow[] = [
 function App() {
   return (
     <>
-      <Gantt data={mockData} initialStart={Date.now() - 3*DAY} />
+      <Gantt data={mockData} />
     </>
   );
 }

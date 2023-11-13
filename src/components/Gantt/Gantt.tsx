@@ -6,7 +6,6 @@ import {
   getThisDay,
   nextScale,
   prevScale,
-  toTimeFormat,
 } from "../../utils/GanttUtils";
 import GanttRow from "../GanttRow/GanttRow";
 
@@ -14,6 +13,7 @@ interface GanttProps {
   data?: ganttRow[];
   onClick?: (t: ganttEvent) => void;
   initialStart? : number;
+  initialScale? : number;
   ondbClick?: (t: ganttEvent) => void;
 }
 
@@ -21,13 +21,14 @@ const Gantt: FC<GanttProps> = ({
   data = [],
   onClick = () => null,
   ondbClick = () => null,
-  initialStart = Date.now()
+  initialStart = Date.now(),
+  initialScale = MIN / 2
 }) => {
   const [width, setWidth] = useState<number>(window.innerWidth);
-  const [scale, setScale] = useState<number>(MIN); //1px = scale seconds
-  const [pScale, setPScale] = useState<number>(MIN); //1px = scale seconds
+  const [scale, setScale] = useState<number>(initialScale); //1px = scale seconds
+  const [pScale, setPScale] = useState<number>(initialScale); //1px = scale seconds
   const [mouseLocation, setMouseLocation] = useState<number>(0);
-  const [currentTimePlace,setCurrentTimePlace] = useState<number>(0);
+  const [,setCurrentTimePlace] = useState<number>(0);
   const [timeRange, setTimeRange] = useState<{ start: number; end: number }>({
     start: initialStart,
     end: initialStart + scale * width,
@@ -102,7 +103,7 @@ const Gantt: FC<GanttProps> = ({
             onClick={onClick}
             ondbClick={ondbClick}
             data={data}
-            key={`row-${index}`}
+            key={`${index}`}
             timeRange={timeRange}
             scale={scale}
           />
