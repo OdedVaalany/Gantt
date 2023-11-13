@@ -1,7 +1,7 @@
 import "./App.css";
 import Gantt from "./components/Gantt/Gantt";
-import { MIN } from "./utils/GanttUtils";
-
+import { DAY, MIN } from "./utils/GanttUtils";
+import AcUnitIcon from '@mui/icons-material/AcUnit';
 const mockData: ganttRow[] = [
   {
     events: [
@@ -12,242 +12,30 @@ const mockData: ganttRow[] = [
           description: "this is very nice",
           isHollow: true,
           startTime: Date.now(),
-          endTime: Date.now() + 30 * MIN,
+          endTime: Date.now() + 1 * MIN,
+          displayName : "ליצי",
+          icon : <AcUnitIcon/>
         },
         {
           color: "#ffa552",
           content: "שמואל",
           description: "זה ממש נחמד מה שקורה כאן",
           isHollow: false,
-          startTime: Date.now() + 45 * MIN,
-          endTime: Date.now() + 120 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#ffa552",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#ffa552",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#ffa552",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#ffa552",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#ffa552",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#ffa552",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#ffa552",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
+          startTime: Date.now() + 1 * MIN,
+          endTime: Date.now() + 2 * MIN,
+          displayName : "בננה"
         },
       ],
     ],
     rowColor: "#ffe2c6",
     headerColor: "#FFCA99",
-  },
-  {
-    events: [
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now(),
-          endTime: Date.now() + 30 * MIN,
-        },
-        {
-          color: "#6fff52",
-          content: "hello 2",
-          description: "this is very nice",
-          isHollow: false,
-          startTime: Date.now() + 45 * MIN,
-          endTime: Date.now() + 120 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-      [
-        {
-          color: "#6fff52",
-          content: "hello",
-          description: "this is very nice",
-          isHollow: true,
-          startTime: Date.now() + 15 * MIN,
-          endTime: Date.now() + 45 * MIN,
-        },
-      ],
-    ],
-
-    rowColor: "#cbffc6",
-    headerColor: "#99ffa8",
-  },
+  }
 ];
 
 function App() {
   return (
     <>
-      <Gantt data={mockData} />
+      <Gantt data={mockData} initialStart={Date.now() - 3*DAY} />
     </>
   );
 }

@@ -30,9 +30,9 @@ const GanttRow: FC<GanttRowProps> = ({
       <div id="header">
         <div id="main">
           <p>{title}</p>
-          <button onClick={() => setIsOpen(!isOpen)}>
+          {data.events.length > 1 &&<button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-          </button>
+          </button>}
         </div>
       </div>
       {data.events.map(

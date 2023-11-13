@@ -31,6 +31,9 @@ export const GanttRowWrapper = styled.div<{
     right: 0px;
     transition: 200ms;
     width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     button {
       background-color: transparent;

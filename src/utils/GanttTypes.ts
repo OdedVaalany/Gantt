@@ -6,6 +6,7 @@ interface ganttEvent {
   startTime: number;
   endTime: number;
   icon?: React.ReactNode;
+  displayName: string;
 }
 
 interface ganttRow {

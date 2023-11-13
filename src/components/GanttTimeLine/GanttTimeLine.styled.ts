@@ -23,7 +23,7 @@ export const GanttTimeLineWrapper = styled.div`
   }
 
   .days div {
-    width: 100px;
+    width: 200px;
     display: block;
     position: sticky;
   }
@@ -79,12 +79,4 @@ export const GanttTimeLineWrapper = styled.div`
     }
   }
 
-  #marker {
-    z-index: 1;
-    width: 1px;
-    background-color: red;
-    position: absolute;
-    height: 100%;
-    top: 0;
-  }
 `;

@@ -32,18 +32,18 @@ export function toTimeFormat(date: number): string {
 }
 
 export function toDayFormat(date: number): string {
-  return dayjs(date).format("DD/MM/YYYY");
+  return  `יום ${["שבת","ראשון","שני","שלישי","רביעי","חמישי","שישי"][dayjs(date).day()]} ה-${dayjs(date).format("DD/MM/YYYY")}`;
 }
 
 export function getCurrentReleventSubject(data: ganttRow): string {
   if (data.events.length > 0) {
     for (const ev of data.events[0]) {
       if (ev.startTime < Date.now() && ev.endTime > Date.now()) {
-        return ev.content;
+        return ev.displayName;
       }
     }
   }
-  return "";
+  return "אין רצף פעיל";
 }
 
 export function mapScaleToVal(scale: number): number {

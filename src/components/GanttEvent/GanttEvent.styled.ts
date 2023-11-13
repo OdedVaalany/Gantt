@@ -8,23 +8,25 @@ export const GanttEventWrapper = styled.div<{
 }>`
   top: 0px;
   height: 100%;
-  width: ${(props) => `${props.width - PADDING}px`};
+  width: ${(props) => `${props.width - PADDING < 0 ? props.width : props.width - PADDING}px`};
   right: ${(props) => `${props.pos}px`};
   border: 2px solid ${(props) => props.color};
   box-sizing: border-box;
-  display: flex;
+  display: grid;
+  grid-template-columns : 1fr 2fr;
+  column-gap: 3px;
   justify-content: center;
   align-items: center;
   font-size: 14px;
   position: absolute;
   border-radius: 10px;
   overflow-y: visible;
+  text-overflow : ellipsis;
+
   padding: 2px;
   p {
     display: flex;
-    position: sticky;
-    right: 20px;
-    left: 20px;
+    width : 100%;
     text-align: right;
     text-overflow: ellipsis;
     overflow: hidden;

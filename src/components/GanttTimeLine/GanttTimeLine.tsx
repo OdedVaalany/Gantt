@@ -85,12 +85,6 @@ const GanttTimeLine: FC<GanttTimeLineProps> = ({
       <div id="days">{daysComponents}</div>
       <div id="times">
         {timesComponents}
-        {Date.now() > timeRange.start && Date.now() < timeRange.end && (
-          <div
-            id="marker"
-            style={{ right: `${(Date.now() - timeRange.start) / scale}px` }}
-          ></div>
-        )}
       </div>
 
       <div id="zommer">

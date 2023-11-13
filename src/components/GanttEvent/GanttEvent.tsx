@@ -32,8 +32,10 @@ const GanttEvent: FC<GanttEventProps> = ({
         pos={pos}
         style={{
           backgroundColor: data.isHollow ? "transparent" : data.color,
+          gridTemplateColumns : data?.icon && width > 16 ? '1fr 2fr ' : '1fr'
         }}
       >
+        {width > 16 && data?.icon}
         <p>{data.content}</p>
       </GanttEventWrapper>
     </>
