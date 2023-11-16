@@ -1,44 +1,19 @@
-import  { FC } from "react";
-import { GanttEventWrapper } from "./GanttEvent.styled";
-import { toTimeFormat } from "../../utils/GanttUtils";
+import React, { FC } from 'react';
+import { GanttEventWrapper } from './GanttEvent.styled';
 
 interface GanttEventProps {
-  data: ganttEvent;
-  timeRange: { start: number; end: number };
-  scale: number;
-  onClick: (t: ganttEvent) => void;
-  ondbClick: (t: ganttEvent) => void;
+   data : ganttEvent
+   right : number;
+   width : number;
 }
 
 const GanttEvent: FC<GanttEventProps> = ({
-  data,
-  scale,
-  timeRange,
-  onClick,
-  ondbClick,
-}) => {
-  const pos: number = (data.startTime - timeRange.start) / scale;
-  const width: number = (data.endTime - data.startTime) / scale;
-  return (
-    <>
-      <GanttEventWrapper
-        onClick={() => onClick(data)}
-        onDoubleClick={() => ondbClick(data)}
-        des={`${data.content}- ${data.description}  ${toTimeFormat(
-          data.startTime
-        )}-${toTimeFormat(data.endTime)}`}
-        color={data.color}
-        width={width}
-        pos={pos}
-        style={{
-          backgroundColor: data.isHollow ? "transparent" : data.color,
-          gridTemplateColumns : data?.icon && width > 16 ? '1fr 2fr ' : '1fr'
-        }}
-      >
-        {width > 16 && data?.icon}
-        <p>{data.content}</p>
-      </GanttEventWrapper>
-    </>
-  );
-};
+   data, right,width
+}) => (
+ <GanttEventWrapper style={{backgroundColor : data.isHollow ? 'transparent' : data.color,borderColor: data.color,right : `${right}px` ,width : `${width}px`}}>
+   {width > 32 && data.icon}
+    <p>GanttEvent Component</p>
+ </GanttEventWrapper>
+);
+
 export default GanttEvent;
